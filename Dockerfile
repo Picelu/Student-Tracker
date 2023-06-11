@@ -3,6 +3,6 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 FROM openjdk:17.0.1-jdk-slim
-COPY --from=build /target/Asn2-0.0.1-SNAPSHOT.jar Asn2.jar
+COPY --from=build /target/asn2-0.0.1-SNAPSHOT.jar asn2.jar
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","Asn2.jar"]
+ENTRYPOINT ["java","-jar","asn2.jar"]
