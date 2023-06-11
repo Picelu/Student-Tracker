@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <script src="/JS/script.js" defer></script>
+</head>
+
+<body>
+    <h1 class="title">Student Tracker</h1>
+    
+    <div class="container">
+
+        <div th:each="user:${us}" class="student-bubble" draggable="true" >
+            <div th:text="${user.name}" class="student-name"></div>
+            <div th:text="${user.email}"class="student-info"></div>
+            <div th:text="${user.gpa}" class="student-info"></div>
+            <div th:text="${user.height}" class="student-info"></div>
+
+            <div class="buttons">
+                <button class="edit-button" onclick="editUser(event, this.getAttribute('data-id'))"
+                    th:data-id="${user.id}">Edit</button>
+                <button class="delete-button" onclick="deleteUser(this.getAttribute('data-id'))" th:data-id="${user.id}">Delete</button>
+            </div>
+            
+        </div>
+    
+        
+    </div>
+
+    <button class="add-button" onclick="location.href='../add.html'">Add Student</button>
+
+</body>
+
+</html>

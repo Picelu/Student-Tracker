@@ -1,0 +1,96 @@
+body {
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+  font-size: 36px;
+  margin-top: 20px;
+  color: #333333;
+}
+
+.student-bubble {
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  cursor: move;
+  overflow: hidden;
+}
+
+.student-bubble.expanded {
+  transform: scale(1.2);
+  z-index: 1;
+  transition: transform 0.3s ease, z-index 0.3s;
+}
+
+.student-name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #333333;
+}
+
+.student-info {
+  font-size: 16px;
+  margin-top: 10px;
+  color: #666666;
+  display: none;
+}
+
+.student-bubble.expanded .student-info {
+  display: block;
+}
+.add-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+  background-color: #45a049;
+}
+
+.edit-button {
+  background-color: #337ab7;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.delete-button {
+  background-color: #d9534f;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+}
