@@ -36,7 +36,7 @@ public class userController {
     }
 
     @PostMapping("/users/add")
-    public void addUser(@RequestParam Map<String, String> newuser, HttpServletResponse response) {
+    public String addUser(@RequestParam Map<String, String> newuser, HttpServletResponse response) {
         System.out.println("ADD user");
         String newEmail = newuser.get("email");
         String newPwd = newuser.get("password");
@@ -46,6 +46,7 @@ public class userController {
         int newHeight = Integer.parseInt(newuser.get("height"));
         userRepo.save(new User(newStudentID, newName, newHeight, newGPA, newEmail, newPwd));
         response.setStatus(201);
+        return "users/added";
 
     }
 

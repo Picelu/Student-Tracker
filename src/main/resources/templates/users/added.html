@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Return to Home Page</title>
+    <link rel="stylesheet" type="text/css" href="/css/added.css">
+</head>
+
+<body>
+    <div class="message">
+        <h1>Please return to the home page</h1>
+        <button class="button button-primary" onclick="goBack()">Go Back</button>
+    </div>
+
+    <script>
+        function goBack() {
+            history.back(-2);
+        }
+    </script>
+</body>
+
+</html>

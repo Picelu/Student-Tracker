@@ -1,0 +1,67 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body styles */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+}
+
+/* Message styles */
+.message {
+  text-align: center;
+}
+
+.message h1 {
+  font-size: 36px;
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+/* Button styles */
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.button-primary {
+  background-color: #4caf50;
+  color: #ffffff;
+  border: none;
+}
+
+.button-primary:hover {
+  background-color: #45a049;
+}
+
+.button-secondary {
+  background-color: #337ab7;
+  color: #ffffff;
+  border: none;
+}
+
+.button-secondary:hover {
+  background-color: #2e6da4;
+}
+
+.button-danger {
+  background-color: #d9534f;
+  color: #ffffff;
+  border: none;
+}
+
+.button-danger:hover {
+  background-color: #c9302c;
+}
