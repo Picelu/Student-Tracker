@@ -83,6 +83,22 @@ function editUser(event, id) {
   form.appendChild(heightInput);
   form.appendChild(submitButton);
 
+  // Fetch the existing student data
+  fetch(endpoint)
+    .then((response) => response.json())
+    .then((data) => {
+      // Prepopulate the input fields with the existing data
+      nameInput.value = data.name;
+      emailInput.value = data.email;
+      passwordInput.value = data.password;
+      gpaInput.value = data.gpa;
+      heightInput.value = data.height;
+    })
+    .catch((error) => {
+      console.error("Failed to fetch student data:", error);
+      // Handle error while fetching student data
+    });
+
   form.addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -104,8 +120,7 @@ function editUser(event, id) {
       .then((response) => {
         if (response.ok) {
           console.log("User successfully edited");
-          location.reload();
-          // Refresh the page or perform any additional actions after successful edit
+          location.reload(); // Refresh the page after successful edit
         } else {
           console.error("Failed to edit user");
           // Handle edit error
