@@ -52,35 +52,26 @@ function editUser(event, id) {
 
   const form = document.createElement("form");
 
+  const nameLabel = document.createElement("label");
+  nameLabel.textContent = "Name:";
   const nameInput = document.createElement("input");
   nameInput.type = "text";
   nameInput.name = "name";
 
+  const emailLabel = document.createElement("label");
+  emailLabel.textContent = "Email:";
   const emailInput = document.createElement("input");
   emailInput.type = "email";
   emailInput.name = "email";
-
-  const passwordInput = document.createElement("input");
-  passwordInput.type = "password";
-  passwordInput.name = "password";
-
-  const gpaInput = document.createElement("input");
-  gpaInput.type = "float";
-  gpaInput.name = "gpa";
-
-  const heightInput = document.createElement("input");
-  heightInput.type = "number";
-  heightInput.name = "height";
 
   const submitButton = document.createElement("button");
   submitButton.type = "submit";
   submitButton.textContent = "Save";
 
+  form.appendChild(nameLabel);
   form.appendChild(nameInput);
+  form.appendChild(emailLabel);
   form.appendChild(emailInput);
-  form.appendChild(passwordInput);
-  form.appendChild(gpaInput);
-  form.appendChild(heightInput);
   form.appendChild(submitButton);
 
   // Fetch the existing student data
@@ -90,9 +81,6 @@ function editUser(event, id) {
       // Prepopulate the input fields with the existing data
       nameInput.value = data.name;
       emailInput.value = data.email;
-      passwordInput.value = data.password;
-      gpaInput.value = data.gpa;
-      heightInput.value = data.height;
     })
     .catch((error) => {
       console.error("Failed to fetch student data:", error);
@@ -105,9 +93,6 @@ function editUser(event, id) {
     const updatedUser = {
       name: nameInput.value,
       email: emailInput.value,
-      password: passwordInput.value,
-      gpa: parseFloat(gpaInput.value),
-      height: parseInt(heightInput.value),
     };
 
     fetch(endpoint, {
