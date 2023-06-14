@@ -57,12 +57,14 @@ function editUser(event, id) {
   const nameInput = document.createElement("input");
   nameInput.type = "text";
   nameInput.name = "name";
+  nameInput.placeholder = "Enter name";
 
   const emailLabel = document.createElement("label");
   emailLabel.textContent = "Email:";
   const emailInput = document.createElement("input");
   emailInput.type = "email";
   emailInput.name = "email";
+  emailInput.placeholder = "Enter email";
 
   const submitButton = document.createElement("button");
   submitButton.type = "submit";
@@ -74,25 +76,15 @@ function editUser(event, id) {
   form.appendChild(emailInput);
   form.appendChild(submitButton);
 
-  // Fetch the existing student data
-  fetch(endpoint)
-    .then((response) => response.json())
-    .then((data) => {
-      // Prepopulate the input fields with the existing data
-      nameInput.value = data.name;
-      emailInput.value = data.email;
-    })
-    .catch((error) => {
-      console.error("Failed to fetch student data:", error);
-      // Handle error while fetching student data
-    });
-
   form.addEventListener("submit", (event) => {
     event.preventDefault();
 
     const updatedUser = {
       name: nameInput.value,
       email: emailInput.value,
+      password: passwordInput.value,
+      gpa: parseFloat(gpaInput.value),
+      height: parseInt(heightInput.value),
     };
 
     fetch(endpoint, {
@@ -105,7 +97,8 @@ function editUser(event, id) {
       .then((response) => {
         if (response.ok) {
           console.log("User successfully edited");
-          location.reload(); // Refresh the page after successful edit
+          location.reload();
+          // Refresh the page or perform any additional actions after successful edit
         } else {
           console.error("Failed to edit user");
           // Handle edit error
